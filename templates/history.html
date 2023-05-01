@@ -1,0 +1,75 @@
+{% load static %} 
+  <head>
+    <meta charset="utf-8">
+    <title>Smart Alarm - probouzejte se chytře!</title>
+    <link rel='stylesheet' href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/5.0/examples/cover/cover.css" rel="stylesheet">
+  </head>
+  <body class="text-center min-vh-100 text-white bg-dark">
+    <div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
+        <header class="mb-auto">
+            <div>
+            <h3 class="float-md-start mb-0"><a href="/" class="text-decoration-none link-light">Smart Alarm</a></h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+                <a class="nav-link active" href="history">History</a>
+                <a class="nav-link" href="settings">Settings</a>
+                <a class="nav-link" href="logout">Log Out</a>
+            </nav>
+            </div>
+        </header>
+        <main class="pt-5">
+            <h1>Historie nocí</h1>
+            <p class="pt-2">Výpis všech nocí zaznamenaných v aplikaci Smart Alarm.</p>
+            <div class="nights">
+                {% if nights %}
+                <ul class="list-group t-s-n">
+                    {% for night in nights %}
+                        {% if night.review_sleep >= 4 %}
+                        <li class="list-group-item d-flex m-1 justify-content-between align-items-center green-one">
+                            <span class="fw-bold">Noc č.{{night.id}}:</span>{{night.date}} - {{night.wake_up}}
+                            <a class="text-decoration-none text-dark" href="/night/{{night.id}}">  
+                                <button type="button" class="btn border-dark">Detail</button>
+                            </a>
+                        </li>
+                        {% elif night.review_sleep >= 2.5 %}
+                        <li class="list-group-item d-flex m-1 justify-content-between align-items-center blue-one">
+                            <span class="fw-bold">Noc č.{{night.id}}:</span>{{night.date}} - {{night.wake_up}}
+                            <a class="text-decoration-none text-dark" href="/night/{{night.id}}">  
+                                <button type="button" class="btn border-dark">Detail</button>
+                            </a>
+                        </li>
+                        {% elif night.review_sleep > 0 %}
+                        <li class="list-group-item d-flex m-1 justify-content-between align-items-center red-one">
+                            <span class="fw-bold">Noc č.{{night.id}}:</span>{{night.date}} - {{night.wake_up}}
+                            <a class="text-decoration-none text-dark" href="/night/{{night.id}}">  
+                                <button type="button" class="btn border-dark">Detail</button>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="list-group-item d-flex m-1 justify-content-between align-items-center bg-secondary">
+                            <span class="fw-bold">Noc č.{{night.id}}:</span>{{night.date}} - {{night.wake_up}}
+                            <a class="text-decoration-none text-dark">  
+                                <button type="button" class="btn border-dark">Detail</button>
+                            </a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <h3 class="pb-5">Zatím nemáte zaznamenané žádné noci</h3>
+                {% endif %}
+            </div>
+            <br>
+        </main>
+        <footer class="mt-auto text-white-50">
+            <p>Aplikace <span class="text-white">Smart Alarm</span> pro DP 2023 - autorem je <span class="text-white">Kryštof Blažej</span></p>
+        </footer>
+    </div> 
+    <script src="{% static 'geo.js' %}"></script>  
+    <script src="{% static 'countdown.js' %}"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>

@@ -1,0 +1,98 @@
+h2,p{
+    text-align: center;
+}
+.login{
+    max-width: 400px;
+    margin: auto;
+}
+.events{
+    max-width: 500px;
+    margin: auto;
+}
+.nights{
+    max-width: 600px;
+    margin: auto;
+}
+.nextEvent{
+    max-width: 200px;
+    margin: auto;
+}
+.map{
+    width:550px;
+    margin: auto;
+}
+.location{
+    max-width: 200px;
+    margin: auto;
+}
+.location-map{
+    max-width: 450px;
+    margin: auto;
+}
+.location-map p{
+    text-align: left;
+}
+.graphs{
+    max-width: 800px;
+    margin: auto;
+}
+#values1, #values2{
+    display: none;
+}
+.alarm-active{
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+@import url(https://allfont.net/allfont.css?fonts=digital-7);
+#countdown{
+    font-family: 'Digital-7', arial;
+    font-size: 10em;
+}
+#pincode{
+    font-family: 'Digital-7', arial;
+    font-size: 6em;
+    letter-spacing: 1rem;
+}
+/*Index stránka*/
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+ 
+.t-s-n{
+    text-shadow: none;
+}
+.green-one{
+    background-color: #b2ddb7 !important;
+}
+.red-one{
+    background-color: #fec8c8 !important;
+}
+.blue-one{
+    background-color: #75b7f5 !important;
+}
+/*input range colors*/
+input[type=range]::-webkit-slider-thumb {
+    background: rgba(33,37,41);
+}
+input[type=range]::-moz-range-thumb {
+    background: rgba(33,37,41);
+}
+input[type=range]::-ms-thumb {
+    background: rgba(33,37,41);
+}
+/*vypis noci a border pod nadpisem */
+.night-border{
+border-bottom: .25rem solid transparent;
+}
